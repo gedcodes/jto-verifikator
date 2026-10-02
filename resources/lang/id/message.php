@@ -1,0 +1,26 @@
+<?php
+return [
+    'LOGIN_GAGAL' => 'Login Gagal',
+    'LOGIN_BERHASIL' => 'Login Berhasil',
+    'LOGIN_UNVERIFIED' => 'Login Gagal. Akun Belum di Aktivasi',
+    'DAFTAR_GAGAL' => 'Pendaftaran Gagal',
+    'DAFTAR_BERHASIL' => 'Pendaftaran Berhasil',
+    'DAFTAR_VER_EMAIL' => 'Silahkan Lakukan Aktivasi Akun Anda Melalui Email',
+    'AKUN_SALAH' => 'Akun Anda Salah',
+    'GET_BERHASIL' => 'Permintaan Data Berhasil',
+    'GET_GAGAL' => 'Permintaan Data Gagal',
+    'SIMPAN_BERHASIL' => 'Simpan Data Berhasil',
+    'SIMPAN_GAGAL' => 'Simpan Data Gagal',
+    'HAPUS_BERHASIL' => 'Hapus Data Berhasil',
+    'HAPUS_GAGAL' => 'Hapus Data Gagal',
+    'HAPUS_SOFT_BERHASIL' => 'Pengarsipan Data Berhasil',
+    'HAPUS_SOFT_GAGAL' => 'Pengarsipan Data Permanen Gagal',
+    'HAPUS_HARD_BERHASIL' => 'Hapus Data Permanen Berhasil',
+    'HAPUS_HARD_GAGAL' => 'Hapus Data Permanen Gagal',
+    'VER_EMAIL_BERHASIL' => 'Verifikasi Email Berhasil',
+    'VER_EMAIL_GAGAL' => 'Verifikasi Email Gagal ! Silahkan Coba Lagi',
+    'VER_EMAIL_READY' => 'Alamat Email Anda Sudah Terverifikasi',
+    'DATA_NOTFOUND' => 'Data Tidak Tersedia',
+    'RESTORE_BERHASIL' => 'Pemulihan Data Berhasil',
+    'RESTORE_GAGAL' => 'Pemulihan Data Gagal'
+];

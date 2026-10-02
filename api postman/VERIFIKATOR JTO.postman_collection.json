@@ -1,0 +1,2422 @@
+{
+	"info": {
+		"_postman_id": "0c813154-d280-4640-9644-c7b96d7f017e",
+		"name": "VERIFIKATOR JTO",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19645915"
+	},
+	"item": [
+		{
+			"name": "Pelanggaran",
+			"item": [
+				{
+					"name": "GET ALL",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/verifikasi/pelanggaran?sort=tgl_pelanggaran&sortby=desc&tgl_dari=2022-11-16&tgl_sampai=2022-11-16",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"verifikasi",
+								"pelanggaran"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "tgl_pelanggaran"
+								},
+								{
+									"key": "sortby",
+									"value": "desc"
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "tgl_dari",
+									"value": "2022-11-16"
+								},
+								{
+									"key": "tgl_sampai",
+									"value": "2022-11-16"
+								},
+								{
+									"key": "no_kendaraan",
+									"value": "B9878PXS",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET ALL ACTIVE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/verifikasi/pelanggaran/active/publish?sort=tgl_pelanggaran&sortby=desc&tgl_dari=2022-12-01&tgl_sampai=2022-12-22",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"verifikasi",
+								"pelanggaran",
+								"active",
+								"publish"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "tgl_pelanggaran"
+								},
+								{
+									"key": "sortby",
+									"value": "desc"
+								},
+								{
+									"key": "page",
+									"value": "3",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"disabled": true
+								},
+								{
+									"key": "tgl_dari",
+									"value": "2022-12-01"
+								},
+								{
+									"key": "tgl_sampai",
+									"value": "2022-12-22"
+								},
+								{
+									"key": "no_kendaraan",
+									"value": "B9878PXS",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET ALL TRUSH",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/verifikasi/pelanggaran/trush/publish?sort=tgl_pelanggaran&sortby=desc&page=1&limit=10",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"verifikasi",
+								"pelanggaran",
+								"trush",
+								"publish"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "tgl_pelanggaran"
+								},
+								{
+									"key": "sortby",
+									"value": "desc"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET BY ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/verifikasi/pelanggaran/a6fea2d3-7b66-4f23-8dd7-bd39683577ae",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"verifikasi",
+								"pelanggaran",
+								"a6fea2d3-7b66-4f23-8dd7-bd39683577ae"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BUKTI PELANGGARAN PDF",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/verifikasi/pelanggaran/active/exportpdf?id=23875947-6211-4bf1-aecc-f637eb432546&kuppkb=LSN",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"verifikasi",
+								"pelanggaran",
+								"active",
+								"exportpdf"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "id",
+									"disabled": true
+								},
+								{
+									"key": "sortby",
+									"value": "desc",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "id",
+									"value": "23875947-6211-4bf1-aecc-f637eb432546"
+								},
+								{
+									"key": "kuppkb",
+									"value": "LSN"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LAPORAN EXCEL",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/verifikasi/pelanggaran/active/laporanexcel?tgl_dari=2022-11-15&tgl_sampai=2022-11-23",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"verifikasi",
+								"pelanggaran",
+								"active",
+								"laporanexcel"
+							],
+							"query": [
+								{
+									"key": "tgl_dari",
+									"value": "2022-11-15"
+								},
+								{
+									"key": "tgl_sampai",
+									"value": "2022-11-23"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LAPORAN PDF",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/verifikasi/pelanggaran/active/laporanpdf?ispdf=1&tgl_dari=2023-03-14&tgl_sampai=2023-03-14",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"verifikasi",
+								"pelanggaran",
+								"active",
+								"laporanpdf"
+							],
+							"query": [
+								{
+									"key": "ispdf",
+									"value": "1",
+									"description": "0=print,1=exportPdf"
+								},
+								{
+									"key": "tgl_dari",
+									"value": "2023-03-14"
+								},
+								{
+									"key": "tgl_sampai",
+									"value": "2023-03-14"
+								},
+								{
+									"key": "kuppkb",
+									"value": "LSN",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Pelanggaran",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "tgl_pelanggaran",
+									"value": "2022-10-22 10:41:52",
+									"type": "text"
+								},
+								{
+									"key": "no_ref",
+									"value": "JKL9H6G9DLPSI2O",
+									"type": "text"
+								},
+								{
+									"key": "regu_id",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "shift_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "no_kendaraan",
+									"value": "A9533ZA",
+									"type": "text"
+								},
+								{
+									"key": "no_uji",
+									"value": "BB03C18003339",
+									"type": "text"
+								},
+								{
+									"key": "tgl_uji",
+									"value": "2021-11-17",
+									"type": "text"
+								},
+								{
+									"key": "tgl_masa_berlaku",
+									"value": "2022-05-17",
+									"type": "text"
+								},
+								{
+									"key": "nama_pemilik",
+									"value": "PT ORANG KREATIF EKSIS",
+									"type": "text"
+								},
+								{
+									"key": "alamat_pemilik",
+									"value": "JL. RAYA CISOKA CANGKUDU KP. CARINGIN 1/2 CISOKA",
+									"type": "text"
+								},
+								{
+									"key": "jbi_uji",
+									"value": "20820",
+									"type": "text"
+								},
+								{
+									"key": "mst_uji",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "jenis_kendaraan_id",
+									"value": "12",
+									"type": "text"
+								},
+								{
+									"key": "jenis_kendaraan",
+									"value": "MOBIL BARANG BAK TERTUTUP",
+									"type": "text"
+								},
+								{
+									"key": "sumbu_id",
+									"value": "13",
+									"type": "text"
+								},
+								{
+									"key": "sumbu",
+									"value": "1.22",
+									"type": "text"
+								},
+								{
+									"key": "kategori_kepemilikan_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "berat_timbang",
+									"value": "20000",
+									"type": "text"
+								},
+								{
+									"key": "kelebihan_berat",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "prosen_lebih",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "panjang_ukur",
+									"value": "11800",
+									"type": "text"
+								},
+								{
+									"key": "panjang_utama",
+									"value": "11850",
+									"type": "text"
+								},
+								{
+									"key": "panjang_toleransi",
+									"value": "12443",
+									"type": "text"
+								},
+								{
+									"key": "panjang_lebih",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "lebar_ukur",
+									"value": "2500",
+									"type": "text"
+								},
+								{
+									"key": "lebar_utama",
+									"value": "2500",
+									"type": "text"
+								},
+								{
+									"key": "lebar_toleransi",
+									"value": "2625",
+									"type": "text"
+								},
+								{
+									"key": "lebar_lebih",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "tinggi_ukur",
+									"value": "3900",
+									"type": "text"
+								},
+								{
+									"key": "tinggi_utama",
+									"value": "3900",
+									"type": "text"
+								},
+								{
+									"key": "tinggi_toleransi",
+									"value": "4095",
+									"type": "text"
+								},
+								{
+									"key": "tinggi_lebih",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "foh_ukur",
+									"value": "1200",
+									"type": "text"
+								},
+								{
+									"key": "foh_utama",
+									"value": "1250",
+									"type": "text"
+								},
+								{
+									"key": "foh_toleransi",
+									"value": "1313",
+									"type": "text"
+								},
+								{
+									"key": "foh_lebih",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "roh_ukur",
+									"value": "3400",
+									"type": "text"
+								},
+								{
+									"key": "roh_utama",
+									"value": "3400",
+									"type": "text"
+								},
+								{
+									"key": "roh_toleransi",
+									"value": "3570",
+									"type": "text"
+								},
+								{
+									"key": "roh_lebih",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "device_id",
+									"value": "2",
+									"description": "1=WIM,2=LHR",
+									"type": "text"
+								},
+								{
+									"key": "petugas_id",
+									"value": "37",
+									"type": "text"
+								},
+								{
+									"key": "capture",
+									"value": "5a1781fc-a234-429c-bb9e-88759ba3a3a7,815dd656-a149-45da-b2ce-bef42b20e8fd,289f8065-40c1-430d-b647-129220c6cb56,a076c548-e020-482f-a810-884e029c69b0,0ff75123-72b9-488a-a3c3-b93c5e5c830b",
+									"type": "text"
+								},
+								{
+									"key": "pelanggaran",
+									"value": "7,4",
+									"type": "text"
+								},
+								{
+									"key": "pasal",
+									"value": "14,8",
+									"type": "text"
+								},
+								{
+									"key": "tgl_capture",
+									"value": "2022-11-15 10:21:00",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/verifikasi/pelanggaran",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"verifikasi",
+								"pelanggaran"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Archive",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "tgl_archive",
+									"value": "2022-11-22 10:41:52",
+									"type": "text"
+								},
+								{
+									"key": "no_ref",
+									"value": "PJI7H6G4DLPSG02",
+									"type": "text"
+								},
+								{
+									"key": "regu_id",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "shift_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "no_kendaraan",
+									"value": "D1234DD",
+									"type": "text"
+								},
+								{
+									"key": "device_id",
+									"value": "2",
+									"description": "1=WIM,2=LHR",
+									"type": "text"
+								},
+								{
+									"key": "petugas_id",
+									"value": "37",
+									"type": "text"
+								},
+								{
+									"key": "keterangan",
+									"value": "Nomor Kendaraan Buram",
+									"type": "text"
+								},
+								{
+									"key": "capture",
+									"value": "327b89a1-5b73-4155-9b2e-a656558afd43,6fcb84a7-40af-4e19-a2cd-ffb222bb303d,d28c47a9-d1a2-458f-b5cb-12199d281406",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/verifikasi/pelanggaran/archive",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"verifikasi",
+								"pelanggaran",
+								"archive"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"no_ref\": \"123DSKFKF\",\r\n\t\"tgl_pelanggaran\": \"2022-10-14\",\r\n\t\"operator\": \"Faza Akmal\",\r\n\t\"kota_kab_id\": 1,\r\n\t\"is_active\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/verifikasi/pelanggaran/462c1db5-3a70-463f-bd68-ea0c6d59fc00",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"verifikasi",
+								"pelanggaran",
+								"462c1db5-3a70-463f-bd68-ea0c6d59fc00"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Active",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"is_active\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/verifikasi/pelanggaran/active/update/462c1db5-3a70-463f-bd68-ea0c6d59fc00",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"verifikasi",
+								"pelanggaran",
+								"active",
+								"update",
+								"462c1db5-3a70-463f-bd68-ea0c6d59fc00"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Trush",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/verifikasi/pelanggaran/462c1db5-3a70-463f-bd68-ea0c6d59fc00",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"verifikasi",
+								"pelanggaran",
+								"462c1db5-3a70-463f-bd68-ea0c6d59fc00"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Trush Arr",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/verifikasi/pelanggaran/trush/arr/462c1db5-3a70-463f-bd68-ea0c6d59fc00",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"verifikasi",
+								"pelanggaran",
+								"trush",
+								"arr",
+								"462c1db5-3a70-463f-bd68-ea0c6d59fc00"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Force",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/verifikasi/pelanggaran/delete/force/462c1db5-3a70-463f-bd68-ea0c6d59fc00",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"verifikasi",
+								"pelanggaran",
+								"delete",
+								"force",
+								"462c1db5-3a70-463f-bd68-ea0c6d59fc00"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Restore One",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/verifikasi/pelanggaran/restore/one/462c1db5-3a70-463f-bd68-ea0c6d59fc00",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"verifikasi",
+								"pelanggaran",
+								"restore",
+								"one",
+								"462c1db5-3a70-463f-bd68-ea0c6d59fc00"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Restore All",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/verifikasi/pelanggaran/restore/all",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"verifikasi",
+								"pelanggaran",
+								"restore",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Archive",
+			"item": [
+				{
+					"name": "GET ALL",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/verifikasi/archive?sort=tgl_archive&sortby=desc&tgl_dari=2022-12-01&tgl_sampai=2022-12-02",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"verifikasi",
+								"archive"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "tgl_archive"
+								},
+								{
+									"key": "sortby",
+									"value": "desc"
+								},
+								{
+									"key": "page",
+									"value": "3",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"disabled": true
+								},
+								{
+									"key": "tgl_dari",
+									"value": "2022-12-01"
+								},
+								{
+									"key": "tgl_sampai",
+									"value": "2022-12-02"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Archive",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "tgl_archive",
+									"value": "2022-11-22 10:41:52",
+									"type": "text"
+								},
+								{
+									"key": "no_ref",
+									"value": "PJI7H6G4DLPSG02",
+									"type": "text"
+								},
+								{
+									"key": "regu_id",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "shift_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "no_kendaraan",
+									"value": "D1234DD",
+									"type": "text"
+								},
+								{
+									"key": "device_id",
+									"value": "2",
+									"description": "1=WIM,2=LHR",
+									"type": "text"
+								},
+								{
+									"key": "petugas_id",
+									"value": "37",
+									"type": "text"
+								},
+								{
+									"key": "keterangan",
+									"value": "Nomor Kendaraan Buram",
+									"type": "text"
+								},
+								{
+									"key": "capture",
+									"value": "327b89a1-5b73-4155-9b2e-a656558afd43,6fcb84a7-40af-4e19-a2cd-ffb222bb303d,d28c47a9-d1a2-458f-b5cb-12199d281406",
+									"type": "text"
+								},
+								{
+									"key": "keterangan_id",
+									"value": "1",
+									"description": "1=Data blue tidak tersedia , 2=Nomor Kendaraan Buram",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/verifikasi/pelanggaran/archive",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"verifikasi",
+								"pelanggaran",
+								"archive"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Capture",
+			"item": [
+				{
+					"name": "GET ALL",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/verifikasi/capture?sort=tgl_capture&sortby=desc&tgl_capture=2022-11-16",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"verifikasi",
+								"capture"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "tgl_capture"
+								},
+								{
+									"key": "sortby",
+									"value": "desc"
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "tgl_capture",
+									"value": "2022-11-16"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET ALL ACTIVE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/verifikasi/capture/active/publish?sort=tgl_capture&sortby=desc&tgl_capture=2022-11-16",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"verifikasi",
+								"capture",
+								"active",
+								"publish"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "tgl_capture"
+								},
+								{
+									"key": "sortby",
+									"value": "desc"
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"disabled": true
+								},
+								{
+									"key": "tgl_capture",
+									"value": "2022-11-16"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET ALL TRUSH",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/verifikasi/capture/trush/publish?sort=tgl_capture&sortby=desc&page=1&limit=10",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"verifikasi",
+								"capture",
+								"trush",
+								"publish"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "tgl_capture"
+								},
+								{
+									"key": "sortby",
+									"value": "desc"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET BY DATE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/verifikasi/capture/active/getbydate?sort=tgl_capture&sortby=desc&page=1&limit=10&tanggal=2022-11-15",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"verifikasi",
+								"capture",
+								"active",
+								"getbydate"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "tgl_capture"
+								},
+								{
+									"key": "sortby",
+									"value": "desc"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "tanggal",
+									"value": "2022-11-15"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET PAGINATION",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/verifikasi/capture/active/getpage?sort=tgl_capture&sortby=asc&page=1&limit=5&tanggal=2022-11-15",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"verifikasi",
+								"capture",
+								"active",
+								"getpage"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "tgl_capture"
+								},
+								{
+									"key": "sortby",
+									"value": "asc"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "tanggal",
+									"value": "2022-11-15"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET SELECTED",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/verifikasi/capture/active/getselected?sort=tgl_capture&sortby=asc&tanggal=2022-12-14 04:01:50&nokend=N9363CL&id=59ff49ee-43ca-478f-a7ca-02c6799f6713",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"verifikasi",
+								"capture",
+								"active",
+								"getselected"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "tgl_capture"
+								},
+								{
+									"key": "sortby",
+									"value": "asc"
+								},
+								{
+									"key": "tanggal",
+									"value": "2022-12-14 04:01:50"
+								},
+								{
+									"key": "nokend",
+									"value": "N9363CL"
+								},
+								{
+									"key": "id",
+									"value": "59ff49ee-43ca-478f-a7ca-02c6799f6713"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET BY ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/verifikasi/capture/327b89a1-5b73-4155-9b2e-a656558afd43",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"verifikasi",
+								"capture",
+								"327b89a1-5b73-4155-9b2e-a656558afd43"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "tgl_capture",
+									"value": "2023-03-15 09:20:30",
+									"type": "text"
+								},
+								{
+									"key": "no_kendaraan",
+									"value": "K8261PD",
+									"type": "text"
+								},
+								{
+									"key": "device_id",
+									"value": "2",
+									"description": "1=WIM,2=LHR",
+									"type": "text"
+								},
+								{
+									"key": "berat_timbang",
+									"value": "20000",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "panjang_ukur",
+									"value": "11800",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "lebar_ukur",
+									"value": "2500",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "tinggi_ukur",
+									"value": "3900",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "foh_ukur",
+									"value": "1200",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "roh_ukur",
+									"value": "3400",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "img1_file",
+									"type": "file",
+									"src": "/C:/Users/moham/Documents/AKMAL/image kendaraan/capture_202212090826021670549162.jpg"
+								},
+								{
+									"key": "img2_file",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "img3_file",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "img4_file",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "img_plat_depan_file",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "img_plat_belakang_file",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "kd_referensi",
+									"value": "2",
+									"description": "1=penimbangan,2=lhr",
+									"type": "text"
+								},
+								{
+									"key": "id_referensi",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "img1_url",
+									"value": "http://10.29.1.14/img/jto/penimbangan/K8261PD_2022_08_29_07_46_51_1661734011120_074645Front.png",
+									"type": "text"
+								},
+								{
+									"key": "img2_url",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "img3_url",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "img4_url",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "img_plat_depan_url",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "img_plat_belakang_url",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "img_plat_depan_base",
+									"value": "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AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOEJJTQQlAAAAAAAQOn6/5t9A7oonFFCU0REOBzhCSU0EOgAAAAAA5QAAABAAAAABAAAAAAALcHJpbnRPdXRwdXQAAAAFAAAAAFBzdFNib29sAQAAAABJbnRlZW51bQAAAABJbnRlAAAAAENscm0AAAAPcHJpbnRTaXh0ZWVuQml0Ym9vbAAAAAALcHJpbnRlck5hbWVURVhUAAAAAQAAAAAAD3ByaW50UHJvb2ZTZXR1cE9iamMAAAAMAFAAcgBvAG8AZgAgAFMAZQB0AHUAcAAAAAAACnByb29mU2V0dXAAAAABAAAAAEJsdG5lbnVtAAAADGJ1aWx0aW5Qcm9vZgAAAAlwcm9vZkNNWUsAOEJJTQQ7AAAAAAItAAAAEAAAAAEAAAAAABJwcmludE91dHB1dE9wdGlvbnMAAAAXAAAAAENwdG5ib29sAAAAAABDbGJyYm9vbAAAAAAAUmdzTWJvb2wAAAAAAENybkNib29sAAAAAABDbnRDYm9vbAAAAAAATGJsc2Jvb2wAAAAAAE5ndHZib29sAAAAAABFbWxEYm9vbAAAAAAASW50cmJvb2wAAAAAAEJja2dPYmpjAAAAAQAAAAAAAFJHQkMAAAADAAAAAFJkICBkb3ViQG/gAAAAAAAAAAAAR3JuIGRvdWJAb+AAAAAAAAAAAABCbCAgZG91YkBv4AAAAAAAAAAAAEJyZFRVbnRGI1JsdAAAAAAAAAAAAAAAAEJsZCBVbnRGI1JsdAAAAAAAAAAAAAAAAFJzbHRVbnRGI1B4bEBywAAAAAAAAAAACnZlY3RvckRhdGFib29sAQAAAABQZ1BzZW51bQAAAABQZ1BzAAAAAFBnUEMAAAAATGVmdFVudEYjUmx0AAAAAAAAAAAAAAAAVG9wIFVudEYjUmx0AAAAAAAAAAAAAAAAU2NsIFVudEYjUHJjQFkAAAAAAAAAAAAQY3JvcFdoZW5QcmludGluZ2Jvb2wAAAAADmNyb3BSZWN0Qm90dG9tbG9uZwAAAAAAAAAMY3JvcFJlY3RMZWZ0bG9uZwAAAAAAAAANY3JvcFJlY3RSaWdodGxvbmcAAAAAAAAAC2Nyb3BSZWN0VG9wbG9uZwAAAAAAOEJJTQPtAAAAAAAQASwAAAABAAIBLAAAAAEAAjhCSU0EJgAAAAAADgAAAAAAAAAAAAA/gAAAOEJJTQPyAAAAAAAKAAD///////8AADhCSU0EDQAAAAAABAAAAB44QklNBBkAAAAAAAQAAAAeOEJJTQPzAAAAAAAJAAAAAAAAAAABADhCSU0nEAAAAAAACgABAAAAAAAAAAI4QklNA/UAAAAAAEgAL2ZmAAEAbGZmAAYAAAAAAAEAL2ZmAAEAoZmaAAYAAAAAAAEAMgAAAAEAWgAAAAYAAAAAAAEANQAAAAEALQAAAAYAAAAAAAE4QklNA/gAAAAAAHAAAP////////////////////////////8D6AAAAAD/////////////////////////////A+gAAAAA/////////////////////////////wPoAAAAAP////////////////////////////8D6AAAOEJJTQQIAAAAAAAQAAAAAQAAAkAAAAJAAAAAADhCSU0ERAAAAAAAEAAAAAIAAAJAAAACQAAAAAA4QklNBB4AAAAAAAQAAAAAOEJJTQQaAAAAAANDAAAABgAAAAAAAAAAAAAB9AAAAyAAAAAHAGMAbwBuAHQAbwBoADIAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAyAAAAH0AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAEAAAAAAABudWxsAAAAAgAAAAZib3VuZHNPYmpjAAAAAQAAAAAAAFJjdDEAAAAEAAAAAFRvcCBsb25nAAAAAAAAAABMZWZ0bG9uZwAAAAAAAAAAQnRvbWxvbmcAAAH0AAAAAFJnaHRsb25nAAADIAAAAAZzbGljZXNWbExzAAAAAU9iamMAAAABAAAAAAAFc2xpY2UAAAASAAAAB3NsaWNlSURsb25nAAAAAAAAAAdncm91cElEbG9uZwAAAAAAAAAGb3JpZ2luZW51bQAAAAxFU2xpY2VPcmlnaW4AAAANYXV0b0dlbmVyYXRlZAAAAABUeXBlZW51bQAAAApFU2xpY2VUeXBlAAAAAEltZyAAAAAGYm91bmRzT2JqYwAAAAEAAAAAAABSY3QxAAAABAAAAABUb3AgbG9uZwAAAAAAAAAATGVmdGxvbmcAAAAAAAAAAEJ0b21sb25nAAAB9AAAAABSZ2h0bG9uZwAAAyAAAAADdXJsVEVYVAAAAAEAAAAAAABudWxsVEVYVAAAAAEAAAAAAABNc2dlVEVYVAAAAAEAAAAAAAZhbHRUYWdURVhUAAAAAQAAAAAADmNlbGxUZXh0SXNIVE1MYm9vbAEAAAAIY2VsbFRleHRURVhUAAAAAQAAAAAA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bWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNy4yLWMwMDAgNzkuMWI2NWE3OSwgMjAyMi8wNi8xMy0xNzo0NjoxNCAgICAgICAgIj4NCgk8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPg0KCQk8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczpwaG90b3Nob3A9Imh0dHA6Ly9ucy5hZG9iZS5jb20vcGhvdG9zaG9wLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6SXB0YzR4bXBDb3JlPSJodHRwOi8vaXB0Yy5vcmcvc3RkL0lwdGM0eG1wQ29yZS8xLjAveG1sbnMvIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdEV2dD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlRXZlbnQjIiBwaG90b3Nob3A6TGVnYWN5SVBUQ0RpZ2VzdD0iMDY5ODAwQ0FDRDQ0MDZDOUM0RjU0NjcyMzFBOUJDQzYiIHBob3Rvc2hvcDpDYXRlZ29yeT0iRklOIiBwaG90b3Nob3A6RGF0ZUNyZWF0ZWQ9IjIwMTYtMTItMjFUMTQ6NTA6NTgiIHBob3Rvc2hvcDpBdXRob3JzUG9zaXRpb249IlNUUiIgcGhvdG9zaG9wOkNpdHk9IlRFR0FMIiBwaG90b3Nob3A6U3RhdGU9IkpBV0EgVEVOR0FIIiBwaG90b3Nob3A6Q291bnRyeT0iSU5ET05FU0lBIiBwaG90b3Nob3A6SGVhZGxpbmU9IlNlanVtbGFoIHRydWsgbWVsaW50YXMgZGkgcGludHUga2VsdWFyIHRvbCBCcmViZXMgVGltdXIiIHBob3Rvc2hvcDpDcmVkaXQ9IkFOVEFSQSBGT1RPIiBwaG90b3Nob3A6U291cmNlPSJBTlRBUkEgRk9UTyIgcGhvdG9zaG9wOkNhcHRpb25Xcml0ZXI9Ik9reSBMdWttYW5zeWFoIiBwaG90b3Nob3A6Q29sb3JNb2RlPSIzIiBwaG90b3Nob3A6SUNDUHJvZmlsZT0ic1JHQiBJRUM2MTk2Ni0yLjEiIGRjOmZvcm1hdD0iaW1hZ2UvanBlZyIgSXB0YzR4bXBDb3JlOkNvdW50cnlDb2RlPSJJRE4iIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wOk1vZGlmeURhdGU9IjIwMjItMTAtMTBUMTU6MDk6MzErMDc6MDAiIHhtcDpDcmVhdGVEYXRlPSIyMDE2LTEyLTIxVDE0OjUwOjU4IiB4bXA6TWV0YWRhdGFEYXRlPSIyMDIyLTEwLTEwVDE1OjA5OjMxKzA3OjAwIiB4bXBNTTpEb2N1bWVudElEPSI4OEJGRjI4RjdGNTFGMzIwODg1RUJEMjYyOTIyMEUwQiIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDoxZTcxZDE1Zi04OGY2LTk2NGMtOGJkYi02OWExNGMyYzRkNWQiIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0iODhCRkYyOEY3RjUxRjMyMDg4NUVCRDI2MjkyMjBFMEIiPg0KCQkJPGRjOnRpdGxlPg0KCQkJCTxyZGY6QWx0Pg0KCQkJCQk8cmRmOmxpIHhtbDpsYW5nPSJ4LWRlZmF1bHQiPlRSVUsgRElMQVJBTkcgTUVMSU5UQVMgREkgSkFMQU4gVE9MPC9yZGY6bGk+DQoJCQkJPC9yZGY6QWx0Pg0KCQkJPC9kYzp0aXRsZT4NCgkJCTxkYzpzdWJqZWN0Pg0KCQkJCTxyZGY6QmFnPg0KCQkJCQk8cmRmOmxpPk9LWSBMVUtNQU5TWUFIPC9yZGY6bGk+DQoJCQkJCTxyZGY6bGk+SkFXQSBURU5HQUg8L3JkZjpsaT4NCgkJCQkJPHJkZjpsaT5CUkVCRVM8L3JkZjpsaT4NCgkJCQkJPHJkZjpsaT5UUlVLIERJTEFSQU5HIE1FTElOVEFTIERJIEpBTEFOIFRPTDwvcmRmOmxpPg0KCQkJCTwvcmRmOkJhZz4NCgkJCTwvZGM6c3ViamVjdD4NCgkJCTxkYzpjcmVhdG9yPg0KCQkJCTxyZGY6U2VxPg0KCQkJCQk8cmRmOmxpPk9reSBMdWttYW5zeWFoPC9yZGY6bGk+DQoJCQkJPC9yZGY6U2VxPg0KCQkJPC9kYzpjcmVhdG9yPg0KCQkJPGRjOmRlc2NyaXB0aW9uPg0KCQkJCTxyZGY6QWx0Pg0KCQkJCQk8cmRmOmxpIHhtbDpsYW5nPSJ4LWRlZmF1bHQiPlNlanVtbGFoIHRydWsgbWVsaW50YXMgZGkgcGludHUga2VsdWFyIHRvbCBCcmViZXMgVGltdXIsIEphd2EgVGVuZ2FoLCBSYWJ1ICgyMS8xMikuIEtlbWVudGVyaWFuIFBlcmh1YnVuZ2FuIG1lbnlhdGFrYW4gdW50dWsgbWVuY2VnYWggdGVyamFkaW55YSBrZW1hY2V0YW4gc2FhdCBsaWJ1ciBOYXRhbCAyMDE2IGRhbiBUYWh1biBCYXJ1IDIwMTcga2FyZW5hIGxvbmpha2FuIGFydXMga2VuZGFyYWFuLCB0cnVrIGJlcm11YXRhbiBiZXJhdCBsZWJpaCBkYXJpIGR1YSBzdW1idSBkaWxhcmFuZyBtZWxpbnRhcyBkaSBydWFzIGphbGFuIHRvbCBtdWxhaSAyMyBEZXNlbWJlci4gQU5UQVJBIEZPVE8vT2t5IEx1a21hbnN5YWgvYXd3LzE2LjwvcmRmOmxpPg0KCQkJCTwvcmRmOkFsdD4NCgkJCTwvZGM6ZGVzY3JpcHRpb24+DQoJCQk8ZGM6cmlnaHRzPg0KCQkJCTxyZGY6QWx0Pg0KCQkJCQk8cmRmOmxpIHhtbDpsYW5nPSJ4LWRlZmF1bHQiPkFOVEFSQSBGT1RPPC9yZGY6bGk+DQoJCQkJPC9yZGY6QWx0Pg0KCQkJPC9kYzpyaWdodHM+DQoJCQk8eG1wTU06SGlzdG9yeT4NCgkJCQk8cmRmOlNlcT4NCgkJCQkJPHJkZjpsaSBzdEV2dDphY3Rpb249InNhdmVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjFlNzFkMTVmLTg4ZjYtOTY0Yy04YmRiLTY5YTE0YzJjNGQ1ZCIgc3RFdnQ6d2hlbj0iMjAyMi0xMC0xMFQxNTowOTozMSswNzowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIzLjUgKFdpbmRvd3MpIiBzdEV2dDpjaGFuZ2VkPSIvIi8+DQoJCQkJPC9yZGY6U2VxPg0KCQkJPC94bXBNTTpIaXN0b3J5Pg0KCQk8L3JkZjpEZXNjcmlwdGlvbj4NCgk8L3JkZjpSREY+DQo8L3g6eG1wbWV0YT4NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg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",
+									"type": "text"
+								},
+								{
+									"key": "img_plat_belakang_base",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/verifikasi/capture",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"verifikasi",
+								"capture"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "tgl_capture",
+									"value": "2022-11-15 10:20:30",
+									"type": "text"
+								},
+								{
+									"key": "no_kendaraan",
+									"value": "A9533ZA",
+									"type": "text"
+								},
+								{
+									"key": "berat_timbang",
+									"value": "20000",
+									"type": "text"
+								},
+								{
+									"key": "panjang_ukur",
+									"value": "11800",
+									"type": "text"
+								},
+								{
+									"key": "lebar_ukur",
+									"value": "2500",
+									"type": "text"
+								},
+								{
+									"key": "tinggi_ukur",
+									"value": "3900",
+									"type": "text"
+								},
+								{
+									"key": "foh_ukur",
+									"value": "1200",
+									"type": "text"
+								},
+								{
+									"key": "roh_ukur",
+									"value": "3400",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/verifikasi/capture/0ff75123-72b9-488a-a3c3-b93c5e5c830b",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"verifikasi",
+								"capture",
+								"0ff75123-72b9-488a-a3c3-b93c5e5c830b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Active",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"is_active\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/verifikasi/capture/active/update/0ff75123-72b9-488a-a3c3-b93c5e5c830b",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"verifikasi",
+								"capture",
+								"active",
+								"update",
+								"0ff75123-72b9-488a-a3c3-b93c5e5c830b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Verifikasi",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"is_verifikasi\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/verifikasi/capture/active/edit/0ff75123-72b9-488a-a3c3-b93c5e5c830b",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"verifikasi",
+								"capture",
+								"active",
+								"edit",
+								"0ff75123-72b9-488a-a3c3-b93c5e5c830b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Trush",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/verifikasi/capture/0ff75123-72b9-488a-a3c3-b93c5e5c830b",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"verifikasi",
+								"capture",
+								"0ff75123-72b9-488a-a3c3-b93c5e5c830b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Trush Arr",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/verifikasi/capture/trush/arr/0ff75123-72b9-488a-a3c3-b93c5e5c830b",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"verifikasi",
+								"capture",
+								"trush",
+								"arr",
+								"0ff75123-72b9-488a-a3c3-b93c5e5c830b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Force",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/verifikasi/capture/delete/force/0ff75123-72b9-488a-a3c3-b93c5e5c830b",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"verifikasi",
+								"capture",
+								"delete",
+								"force",
+								"0ff75123-72b9-488a-a3c3-b93c5e5c830b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Restore One",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/verifikasi/capture/restore/one/0ff75123-72b9-488a-a3c3-b93c5e5c830b",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"verifikasi",
+								"capture",
+								"restore",
+								"one",
+								"0ff75123-72b9-488a-a3c3-b93c5e5c830b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Restore All",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/verifikasi/capture/restore/all",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"verifikasi",
+								"capture",
+								"restore",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Beranda",
+			"item": [
+				{
+					"name": "Resume Widget",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/beranda/resume",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"beranda",
+								"resume"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pelanggaran Perbulan Tahun Ini",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/beranda/getperbulan",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"beranda",
+								"getperbulan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pelanggaran Perjam Hari Ini",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/beranda/getperjam",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"beranda",
+								"getperjam"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pelanggaran By Jenis Kendaraan Bulan Ini",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/beranda/getperjeniskendaraan",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"beranda",
+								"getperjeniskendaraan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pelanggaran By Kategori Kepemilikan Bulan Ini",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/beranda/getperkategorikepemilikan",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"beranda",
+								"getperkategorikepemilikan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pelanggaran By Range Berat Bulan Ini",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/beranda/getperberat",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"beranda",
+								"getperberat"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Laporan",
+			"item": [
+				{
+					"name": "Lap. Pelanggaran Perjenis Kendaraan",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/laporan/perjeniskendaraan?interval=1&bulan=12&tahun=2022",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"laporan",
+								"perjeniskendaraan"
+							],
+							"query": [
+								{
+									"key": "interval",
+									"value": "1",
+									"description": "1=Bulanan, 2=Tahunan"
+								},
+								{
+									"key": "bulan",
+									"value": "12"
+								},
+								{
+									"key": "tahun",
+									"value": "2022"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lap. Pelanggaran Perjenis Pelanggaran",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/laporan/perjenispelanggaran?interval=1&bulan=12&tahun=2022",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"laporan",
+								"perjenispelanggaran"
+							],
+							"query": [
+								{
+									"key": "interval",
+									"value": "1",
+									"description": "1=Bulanan, 2=Tahunan"
+								},
+								{
+									"key": "bulan",
+									"value": "12"
+								},
+								{
+									"key": "tahun",
+									"value": "2022"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lap. Pelanggaran Perberat",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/laporan/perberat?interval=2&bulan=12&tahun=2022",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"laporan",
+								"perberat"
+							],
+							"query": [
+								{
+									"key": "interval",
+									"value": "2",
+									"description": "1=Bulanan, 2=Tahunan"
+								},
+								{
+									"key": "bulan",
+									"value": "12"
+								},
+								{
+									"key": "tahun",
+									"value": "2022"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Print Laporan",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/laporan/printpdf?jenis=1&interval=1&bulan=12&tahun=2022&kuppkb=LSN",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"laporan",
+								"printpdf"
+							],
+							"query": [
+								{
+									"key": "jenis",
+									"value": "1",
+									"description": "1=Perjenis Kendaraan, 2=Kelebihan Muatan"
+								},
+								{
+									"key": "interval",
+									"value": "1",
+									"description": "1=Bulanan, 2=Tahunan"
+								},
+								{
+									"key": "bulan",
+									"value": "12"
+								},
+								{
+									"key": "tahun",
+									"value": "2022"
+								},
+								{
+									"key": "kuppkb",
+									"value": "LSN"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Export Excel laporan",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/laporan/exportexcel?jenis=2&interval=2&bulan=12&tahun=2022",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"laporan",
+								"exportexcel"
+							],
+							"query": [
+								{
+									"key": "jenis",
+									"value": "2",
+									"description": "1=Perjenis Kendaraan, 2=Kelebihan Muatan"
+								},
+								{
+									"key": "interval",
+									"value": "2",
+									"description": "1=Bulanan, 2=Tahunan"
+								},
+								{
+									"key": "bulan",
+									"value": "12"
+								},
+								{
+									"key": "tahun",
+									"value": "2022"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "LOGIN",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if (responseCode.code === 200) {\r",
+							"    var jsonData = JSON.parse(responseBody);\r",
+							"    postman.setEnvironmentVariable(\"token\", jsonData.data.access_token);\r",
+							"    postman.setEnvironmentVariable(\"token_type\", jsonData.data.token_type);\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"email\": \"postman@marktelrnd.online\",\r\n\t\"password\": \"marktel123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/login",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LOGOUT",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if (responseCode.code === 200) {\r",
+							"    var jsonData = JSON.parse(responseBody);\r",
+							"    postman.setEnvironmentVariable(\"token\", \"\");\r",
+							"\tpostman.setEnvironmentVariable(\"token_type\", \"\");\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/logout",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"logout"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

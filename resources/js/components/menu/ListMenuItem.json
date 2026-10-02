@@ -1,0 +1,46 @@
+{
+    "navigation": [
+        {
+            "name": "Beranda",
+            "href": "beranda",
+            "current": false,
+            "push": false
+        },
+        {
+            "name": "Verifikasi",
+            "href": "capture",
+            "current": false,
+            "push": false
+        },
+        {
+            "name": "WIM",
+            "href": "wim",
+            "current": false,
+            "push": false
+        },
+        {
+            "name": "Pelanggaran",
+            "href": "pelanggaran",
+            "current": false,
+            "push": false
+        },
+        {
+            "name": "Arsip Data",
+            "href": "arsipverifikasi",
+            "current": false,
+            "push": false
+        },
+        {
+            "name": "Laporan",
+            "href": "report",
+            "current": false,
+            "push": false
+        }
+    ],
+    "userNavigation": [
+        {
+            "name": "Profil Akun",
+            "href": "profile"
+        }
+    ]
+}

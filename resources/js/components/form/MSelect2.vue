@@ -1,0 +1,263 @@
+<template>
+    <Field :name="name" :id="name" v-model="selectedField">
+        <label v-if="labelTitle" class="form-label block mb-1 text-gray-600 font-poppins text-sm" :for="name"><span
+                v-if="requiredSelect" class="text-red-600">*</span>
+            <span class="ml-1">{{ labelTitle }}</span></label>
+        <div class="relative" :class="{ 'has-error': !!errorMessage, success: meta.valid }">
+            <v-select :inputId="name" :placeholder="placeholder" :options="options" :filterable="filterable"
+                :multiple="multiple" :clearable="clearable" :disabled="disabled" :loading="loading"
+                v-model="selectedField" v-bind="$attrs" label="label" :reduce="reduce" :append-to-body="appendToBody"
+                class="style-chooser py-0 h-10 leading-normal sm:block w-full text-gray-800 bg-white font-sans rounded-md appearance-none outline-none"
+                :class="[
+                    {
+                        'border-red-400': errorMessage,
+                        'pl-12': leftIcon === true,
+                        'text-center': inputCenter == true,
+                        'text-xs': inputTextSize == 'xs',
+                        'text-sm': inputTextSize == 'sm',
+                        'text-md': inputTextSize == 'md',
+                        'text-lg': inputTextSize == 'lg',
+                    },
+                    classes,
+                ]">
+            </v-select>
+
+            <p v-if="inputInfo" class="font-thin text-[10px] text-gray-500 italic drop-shadow-sm">
+                {{ inputInfo }}
+            </p>
+            <p class="text-red-600 mt-1 text-xs" v-show="errorMessage">
+                {{ errorMessage }}
+            </p>
+            <svg class="absolute text-red-600 fill-current" style="top: 8px; right: 48px" v-if="errorMessage"
+                xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path
+                    d="M11.953,2C6.465,2,2,6.486,2,12s4.486,10,10,10s10-4.486,10-10S17.493,2,11.953,2z M13,17h-2v-2h2V17z M13,13h-2V7h2V13z" />
+            </svg>
+        </div>
+    </Field>
+</template>
+<script>
+import { useField, Field, ErrorMessage } from "vee-validate";
+import vSelect from "vue-select";
+import "vue-select/dist/vue-select.css";
+import { createPopper } from "@popperjs/core";
+export default {
+    name: "MSelect",
+    components: { useField, Field, ErrorMessage, vSelect },
+    data() {
+        return {
+            valSelected: "",
+        };
+    },
+    props: {
+        type: {
+            type: String,
+            default: "text",
+        },
+        name: {
+            type: String,
+            required: true,
+        },
+        requiredSelect: {
+            type: Boolean,
+            default: false,
+        },
+        labelTitle: {
+            type: String,
+            required: false,
+        },
+        labelSelect: {
+            type: String,
+            required: false,
+        },
+        successMessage: {
+            type: String,
+            default: "",
+        },
+        errorMessageSelected: {
+            type: String,
+            default: "",
+        },
+        placeholder: {
+            type: String,
+            default: "",
+        },
+        src: {
+            type: String,
+            default: "",
+        },
+        bordered: {
+            type: Boolean,
+            default: true,
+        },
+        leftIcon: {
+            type: Boolean,
+            default: false,
+        },
+        rightIcon: {
+            type: Boolean,
+            default: false,
+        },
+        inputInfo: {
+            type: String,
+        },
+        clearable: {
+            type: Boolean,
+            default: true,
+        },
+        inputCenter: {
+            type: Boolean,
+            default: false,
+        },
+        inputTextSize: {
+            type: String,
+            default: "sm",
+        },
+        autofocus: {
+            type: String,
+        },
+        options: {
+            type: Array,
+            default: [],
+        },
+        filterable: {
+            type: Boolean,
+            default: true,
+        },
+        multiple: {
+            type: Boolean,
+            default: false,
+        },
+        selected: {
+            type: Object,
+            default: {},
+        },
+        selectedField: {
+            type: Object,
+            default: {},
+        },
+        vbindVal: {
+            type: Object,
+            default: null,
+        },
+        reduce: {
+            type: Function,
+            default: (option) => option,
+        },
+        modelValue: {
+            type: Object,
+        },
+        disabled: {
+            type: Boolean,
+            default: false,
+        },
+        loading: {
+            type: Boolean,
+            default: false,
+        },
+        appendToBody: {
+            type: Boolean,
+            default: false,
+        },
+        placement: {
+            type: String,
+            default: "bottom",
+        },
+        maxHeight: {
+            type: String,
+            default: "400px",
+        },
+    },
+    setup(props) {
+        const {
+            value: inputValueSelect,
+            errorMessage,
+            handleBlur,
+            handleChange,
+            meta,
+        } = useField(props.name, undefined, {
+            initialValue: props.value,
+        });
+        // const onInput = (event) => {
+        //     handleChange(event, true);
+        //     emit("update:value", event.target.value);
+        // };
+
+        // const onChangeEmit = (e) => {
+        //     console.log(e);
+        //     emit("selectChange", e);
+        // };
+
+        return {
+            handleChange,
+            handleBlur,
+            errorMessage,
+            inputValueSelect,
+            meta,
+        };
+    },
+    emits: ["update:modelValue", "selectOption", "doSelected"],
+    methods: {
+        setSelected(data) {
+            console.log(data);
+            this.inputValueSelect = data.value.toString();
+            this.$emit("selectOption", data);
+        },
+        valueSelected(val) {
+            console.log("doSelected", val);
+            this.$emit("doSelected", this.inputValueSelect);
+        },
+        onClear(val) {
+            console.log(val);
+            this.clearable = false;
+        },
+        withPopper(dropdownList, component, { width }) {
+            dropdownList.style.width = width;
+
+            const popper = createPopper(component.$refs.toggle, dropdownList, {
+                placement: "bottom",
+            });
+            return () => popper.destroy();
+        },
+    },
+    computed: {
+        classes() {
+            return {
+                "border border-gray-300 focus:border-blue-600 focus:font-normal focus:shadow":
+                    this.bordered === true,
+                "border bg-bluegrey-400 focus:bg-white":
+                    this.bordered === false,
+            };
+        },
+    },
+    created() {
+        if (this.selected.value) {
+            this.inputValueSelect = this.selected.value;
+        }
+    },
+};
+</script>
+<style>
+.style-chooser .vs__font-size {
+    font-size: 11px;
+}
+
+.style-chooser .vs__search::placeholder {
+    color: #a9a9a9;
+    font-weight: lighter;
+    font-size: 12px;
+}
+
+.style-chooser .vs__dropdown-toggle,
+.style-chooser .vs__dropdown-menu {
+    margin-top: 1px;
+    border: none;
+    line-height: 1.5;
+    font-size: "10px";
+}
+
+.style-chooser .vs__clear,
+.style-chooser .vs__open-indicator {
+    fill: #394066;
+}
+</style>

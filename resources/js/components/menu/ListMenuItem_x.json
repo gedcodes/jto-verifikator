@@ -1,0 +1,52 @@
+{
+    "navigation": [
+        {
+            "name": "Beranda",
+            "href": "beranda",
+            "current": false,
+            "push": false
+        },
+        {
+            "name": "Verifikasi",
+            "href": "capture",
+            "current": false,
+            "push": false
+        },
+        {
+            "name": "Pelanggaran",
+            "href": "pelanggaran",
+            "current": false,
+            "push": false
+        },
+        {
+            "name": "Arsip Data",
+            "href": "archive",
+            "current": false,
+            "push": true,
+            "children": [
+                {
+                    "name": "Arsip Data Verifikasi",
+                    "href": "arsipverifikasi",
+                    "current": false
+                },
+                {
+                    "name": "Arsip Data Pelanggaran",
+                    "href": "arsippelanggaran",
+                    "current": false
+                }
+            ]
+        },
+        {
+            "name": "Laporan",
+            "href": "report",
+            "current": false,
+            "push": false
+        }
+    ],
+    "userNavigation": [
+        {
+            "name": "Profil Akun",
+            "href": "profile"
+        }
+    ]
+}

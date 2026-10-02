@@ -1,0 +1,347 @@
+<template>
+    <!-- <div class="shadow-md bg-white">
+        <div class="max-w-screen-lg mx-auto flex justify-between">
+            <div class="p-4">
+                <router-link
+                    class="font-semibold tracking-wider text-lg"
+                    :to="{ name: '' }"
+                >
+                    ATMS
+                </router-link>
+                <router-link
+                    active-class="font-semibold text-gray-900"
+                    v-if="user"
+                    class="px-6 text-gray-500 hover:text-gray-900"
+                    :to="{ name: 'home' }"
+                >
+                    Home
+                </router-link>
+            </div>
+
+            <div v-if="user" class="relative" ref="dropMenu">
+                <div
+                    @click="drop = !drop"
+                    class="flex items-center cursor-pointer p-4 font-semibold tracking-wider text-lg"
+                >
+                    {{ user.name }}
+                    <ChevronDownIcon
+                        class="h-5 w-5 text-gray-700 ml-2 mt-1"
+                    ></ChevronDownIcon>
+                </div>
+
+                <div
+                    v-if="drop"
+                    @click="drop = !drop"
+                    class="absolute bg-white border z-10 shadow-md flex w-auto flex-col"
+                >
+                    <router-link
+                        class="p-4 flex items-center"
+                        :to="{ name: 'settings' }"
+                    >
+                        <CogIcon class="h-6 w-6 text-gray-700 mr-2"></CogIcon>
+                        Settings
+                    </router-link>
+
+                    <div
+                        @click="logout"
+                        class="p-4 flex items-center cursor-pointer"
+                    >
+                        <LogoutIcon
+                            class="h-6 w-6 text-gray-700 mr-2"
+                        ></LogoutIcon>
+
+                        Logout
+                    </div>
+                </div>
+            </div>
+
+            <div v-else class="flex">
+                <router-link
+                    class="p-4 tracking-widest flex items-center text-gray-600"
+                    active-class="font-semibold text-gray-800"
+                    :to="{ name: 'login' }"
+                >
+                    Login
+                </router-link>
+                <router-link
+                    class="p-4 tracking-widest flex items-center text-gray-600"
+                    active-class="font-semibold text-gray-800"
+                    :to="{ name: 'register' }"
+                >
+                    Register
+                </router-link>
+            </div>
+        </div>
+    </div> -->
+    <Disclosure as="nav" class="bg-gray-800" v-slot="{ open }">
+        <div class="max-w-full w-full mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-12">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <!-- <img
+                            class="h-8 w-8"
+                            src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=500"
+                            alt="Workflow"
+                        /> -->
+                        <div class="hidden md:block">
+                            <Logo />
+                        </div>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="ml-10 flex items-baseline space-x-4">
+                            <router-link
+                                v-for="item in navigation"
+                                :key="item.name"
+                                :to="{ name: item.href }"
+                                :class="[
+                                    item.current
+                                        ? 'bg-gray-900 text-white'
+                                        : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                                    'px-3 py-2 rounded-md text-sm font-medium',
+                                ]"
+                                :aria-current="
+                                    item.current ? 'page' : undefined
+                                "
+                            >
+                                {{ item.name }} - {{ item.href }}
+                            </router-link>
+                            <!-- <a
+                                        v-for="item in navigation"
+                                        :key="item.name"
+                                        :href="item.href"
+                                        :class="[
+                                            item.current
+                                                ? 'bg-gray-900 text-white'
+                                                : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                                            'px-3 py-2 rounded-md text-sm font-medium',
+                                        ]"
+                                        :aria-current="
+                                            item.current ? 'page' : undefined
+                                        "
+                                    >
+                                        {{ item.name }}
+                                    </a> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-4 flex items-center md:ml-6">
+                        <button
+                            type="button"
+                            class="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                        >
+                            <span class="sr-only">View notifications</span>
+                            <BellIcon class="h-6 w-6" aria-hidden="true" />
+                        </button>
+
+                        <!-- Profile dropdown -->
+                        <Menu as="div" class="ml-3 relative">
+                            <div>
+                                <MenuButton
+                                    class="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                                >
+                                    <span class="sr-only">Open user menu</span>
+                                    <img
+                                        class="h-8 w-8 rounded-full"
+                                        :src="user.imageUrl"
+                                        alt=""
+                                    />
+                                </MenuButton>
+                            </div>
+                            <transition
+                                enter-active-class="transition ease-out duration-100"
+                                enter-from-class="transform opacity-0 scale-95"
+                                enter-to-class="transform opacity-100 scale-100"
+                                leave-active-class="transition ease-in duration-75"
+                                leave-from-class="transform opacity-100 scale-100"
+                                leave-to-class="transform opacity-0 scale-95"
+                            >
+                                <MenuItems
+                                    class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                >
+                                    <MenuItem
+                                        v-for="item in userNavigation"
+                                        :key="item.name"
+                                        v-slot="{ active }"
+                                    >
+                                        <a
+                                            :href="item.href"
+                                            :class="[
+                                                active ? 'bg-gray-100' : '',
+                                                'block px-4 py-2 text-sm text-gray-700',
+                                            ]"
+                                            >{{ item.name }}</a
+                                        >
+                                    </MenuItem>
+                                </MenuItems>
+                            </transition>
+                        </Menu>
+                    </div>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <!-- Mobile menu button -->
+                    <DisclosureButton
+                        class="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                    >
+                        <span class="sr-only">Open main menu</span>
+                        <MenuIcon
+                            v-if="!open"
+                            class="block h-6 w-6"
+                            aria-hidden="true"
+                        />
+                        <XIcon
+                            v-else
+                            class="block h-6 w-6"
+                            aria-hidden="true"
+                        />
+                    </DisclosureButton>
+                </div>
+            </div>
+        </div>
+
+        <DisclosurePanel class="md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <DisclosureButton
+                    v-for="item in navigation"
+                    :key="item.name"
+                    as="a"
+                    :href="item.href"
+                    :class="[
+                        item.current
+                            ? 'bg-gray-900 text-white'
+                            : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                        'block px-3 py-2 rounded-md text-base font-medium',
+                    ]"
+                    :aria-current="item.current ? 'page' : undefined"
+                    >{{ item.name }}</DisclosureButton
+                >
+            </div>
+            <div class="pt-4 pb-3 border-t border-gray-700">
+                <div class="flex items-center px-5">
+                    <div class="flex-shrink-0">
+                        <img
+                            class="h-10 w-10 rounded-full"
+                            :src="user.imageUrl"
+                            alt=""
+                        />
+                    </div>
+                    <div class="ml-3">
+                        <div
+                            class="text-base font-medium leading-none text-white"
+                        >
+                            {{ user.name }}
+                        </div>
+                        <div
+                            class="text-sm font-medium leading-none text-gray-400"
+                        >
+                            {{ user.email }}
+                        </div>
+                    </div>
+                    <button
+                        type="button"
+                        class="ml-auto bg-gray-800 flex-shrink-0 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                    >
+                        <span class="sr-only">View notifications</span>
+                        <BellIcon class="h-6 w-6" aria-hidden="true" />
+                    </button>
+                </div>
+                <div class="mt-3 px-2 space-y-1">
+                    <DisclosureButton
+                        v-for="item in userNavigation"
+                        :key="item.name"
+                        as="a"
+                        :href="item.href"
+                        class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700"
+                        >{{ item.name }}</DisclosureButton
+                    >
+                </div>
+            </div>
+        </DisclosurePanel>
+    </Disclosure>
+</template>
+<script>
+import Logo from "@/js/components/Logo";
+import { CogIcon, LogoutIcon, ChevronDownIcon } from "@heroicons/vue/outline";
+import {
+    Disclosure,
+    DisclosureButton,
+    DisclosurePanel,
+    Menu,
+    MenuButton,
+    MenuItem,
+    MenuItems,
+} from "@headlessui/vue";
+import { BellIcon, MenuIcon, XIcon } from "@heroicons/vue/outline";
+
+// const user = {
+//     name: "Tom Cook",
+//     email: "tom@example.com",
+//     imageUrl:
+//         "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+// };
+export default {
+    // created: function () {
+    //     if (this.$store.getters.user) {
+    //         let self = this;
+    //         window.addEventListener("click", function (e) {
+    //             if (!self.$refs.dropMenu.contains(e.target)) {
+    //                 self.drop = false;
+    //             }
+    //         });
+    //     }
+    // },
+
+    components: {
+        Logo,
+        CogIcon,
+        LogoutIcon,
+        ChevronDownIcon,
+        Disclosure,
+        DisclosureButton,
+        DisclosurePanel,
+        Menu,
+        MenuButton,
+        MenuItem,
+        MenuItems,
+        BellIcon,
+        MenuIcon,
+        XIcon,
+    },
+    data() {
+        return {
+            drop: false,
+            userProfil: {
+                name: "",
+                email: "",
+                imageUrl: "",
+            },
+            navigation: [
+                { name: "Dashboard", href: "home", current: false },
+                { name: "Setup", href: "profile", current: false },
+                // { name: "Projects", href: "#", current: false },
+                // { name: "Calendar", href: "#", current: false },
+                // { name: "Reports", href: "#", current: false },
+            ],
+            userNavigation: [
+                { name: "Your Profile", href: "#" },
+                { name: "Settings", href: "#" },
+                { name: "Sign out", href: "#" },
+            ],
+        };
+    },
+    computed: {
+        user() {
+            const userData = this.$store.getters.user;
+            this.userProfil.name = userData.name;
+            this.userProfil.email = userData.email;
+            return this.$store.getters.user;
+        },
+    },
+    methods: {
+        async logout() {
+            await this.$store.dispatch("logout");
+            this.$router.push({ name: "login" });
+        },
+    },
+};
+</script>
